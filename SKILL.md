@@ -17,6 +17,14 @@ description: 从指定的 Gemini 聊天 URL 抓取最新生成的图片，并自
 ./.venv/bin/python .gemini/skills/gemini-image-fetcher-skill/scripts/fetch_latest_image.py --url "<CHAT_URL>"
 ```
 
+默认情况下，下载产物写到当前工作目录下的：
+
+```text
+outputs/gemini-image-fetcher-skill/<yyyymmdd-gemini-image>/
+```
+
+脚本会返回这个目录里的实际图片路径。
+
 ### 第二步：提取路径
 脚本会输出一行以 `RESULT_FILE_PATH:` 开头的内容。从中提取文件路径。
 
@@ -26,6 +34,8 @@ description: 从指定的 Gemini 聊天 URL 抓取最新生成的图片，并自
 ```bash
 python .gemini/skills/gemini-watermark-remover-skill/remover.py "<EXTRACTED_PATH>"
 ```
+
+去水印后的文件默认保存在原图旁边，文件名追加 `_clean` 后缀。
 
 ## 注意事项
 - **身份验证**：假设用户已在 `.gemini_automation_profile` 配置文件中登录 Gemini。如果未登录，浏览器将以有头模式启动，等待用户登录。

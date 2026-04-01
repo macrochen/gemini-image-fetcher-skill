@@ -3,6 +3,7 @@ import sys
 import argparse
 import os
 from pathlib import Path
+from datetime import datetime
 from playwright.async_api import async_playwright
 
 async def run(url):
@@ -15,7 +16,9 @@ async def run(url):
         )
 
         page = browser.pages[0] if browser.pages else await browser.new_page()
-        downloads_path = Path.home() / "Downloads"
+        run_dir = Path.cwd() / "outputs" / "gemini-image-fetcher-skill" / f"{datetime.now().strftime('%Y%m%d')}-gemini-image"
+        run_dir.mkdir(parents=True, exist_ok=True)
+        downloads_path = run_dir
         
         # 定义任务完成事件
         task_completed = asyncio.Event()
