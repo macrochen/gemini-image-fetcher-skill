@@ -14,7 +14,7 @@ description: 从指定的 Gemini 聊天 URL 抓取最新生成的图片，并自
 运行 Playwright 脚本以导航到 URL 并下载最新图片。脚本使用现有的 `~/.gemini_automation_profile` 进行身份验证。
 
 ```bash
-./.venv/bin/python .gemini/skills/gemini-image-fetcher-skill/scripts/fetch_latest_image.py --url "<CHAT_URL>"
+./.venv/bin/python ~/.agents/skills/gemini-image-fetcher-skill/scripts/fetch_latest_image.py --url "<CHAT_URL>"
 ```
 
 默认情况下，下载产物写到当前工作目录下的：
@@ -32,7 +32,7 @@ outputs/gemini-image-fetcher-skill/<yyyymmdd-gemini-image>/
 使用提取的路径调用 `gemini-watermark-remover-skill`：
 
 ```bash
-python .gemini/skills/gemini-watermark-remover-skill/remover.py "<EXTRACTED_PATH>"
+python ~/.agents/skills/gemini-watermark-remover-skill/remover.py "<EXTRACTED_PATH>"
 ```
 
 去水印后的文件默认保存在原图旁边，文件名追加 `_clean` 后缀。

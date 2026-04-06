@@ -28,7 +28,7 @@ gemini skills install ./gemini-image-fetcher-skill
 运行 Playwright 脚本以导航到 URL 并下载最新图片。脚本使用现有的 `~/.gemini_automation_profile` 进行身份验证。
 
 ```bash
-./.venv/bin/python .gemini/skills/gemini-image-fetcher-skill/scripts/fetch_latest_image.py --url "<CHAT_URL>"
+./.venv/bin/python ~/.agents/skills/gemini-image-fetcher-skill/scripts/fetch_latest_image.py --url "<CHAT_URL>"
 ```
 
 ### 第二步：提取路径
@@ -38,7 +38,7 @@ gemini skills install ./gemini-image-fetcher-skill
 使用提取的路径调用 `gemini-watermark-remover-skill`：
 
 ```bash
-python .gemini/skills/gemini-watermark-remover-skill/remover.py "<EXTRACTED_PATH>"
+python ~/.agents/skills/gemini-watermark-remover-skill/remover.py "<EXTRACTED_PATH>"
 ```
 
 ## 注意事项
